@@ -9,12 +9,13 @@ import { PaperTravelers } from "@/components/investor/PaperTravelers";
 import { TribalKnowledge } from "@/components/investor/TribalKnowledge";
 import { IntelligenceLayer } from "@/components/investor/IntelligenceLayer";
 import { StickyNav } from "@/components/investor/StickyNav";
+import { LoginGate } from "@/components/investor/LoginGate";
 
 export default function Home() {
   const evidenceRef = useRef<HTMLDivElement>(null);
 
   return (
-    <>
+    <LoginGate>
       <StickyNav />
       <main className="bg-[#0F1112] text-white">
         <HeroSection onCTAClick={() => evidenceRef.current?.scrollIntoView({ behavior: "smooth" })} />
@@ -27,6 +28,6 @@ export default function Home() {
         <TribalKnowledge />
         <IntelligenceLayer />
       </main>
-    </>
+    </LoginGate>
   );
 }
