@@ -4,8 +4,10 @@ import { useState, useEffect } from "react";
 import { CorelloLogo } from "./CorelloLogo";
 
 const AUTH_KEY = "corello_mi_auth";
-const VALID_EMAIL = "carlos.maiguel@corello.ai";
-const VALID_PASSWORD = "corello123";
+const VALID_USERS: Record<string, string> = {
+  "carlos.maiguel@corello.ai": "corello123",
+  "dataroom@corello.ai": "corello123",
+};
 
 interface Props {
   children: React.ReactNode;
@@ -27,7 +29,8 @@ export function LoginGate({ children }: Props) {
     setLoading(true);
     setError("");
     setTimeout(() => {
-      if (email.trim().toLowerCase() === VALID_EMAIL && password === VALID_PASSWORD) {
+      const key = email.trim().toLowerCase();
+      if (VALID_USERS[key] && VALID_USERS[key] === password) {
         sessionStorage.setItem(AUTH_KEY, "1");
         setAuthed(true);
       } else {
