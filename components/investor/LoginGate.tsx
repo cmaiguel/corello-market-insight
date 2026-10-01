@@ -9,6 +9,7 @@ const VALID_USERS: Record<string, string> = {
   "dataroom@corello.ai": "corello123",
   "valeria.vamosventures@corello.ai": "ireallylikecorello",
   "patricia.wexler@corello.ai": "ireallylikecorello",
+  "rod.outsized@corello.ai": "ireallylikecorello",
 };
 
 interface Props {
